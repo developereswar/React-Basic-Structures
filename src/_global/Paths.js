@@ -5,18 +5,22 @@ import CustomerListComponent from '../pages/CustomerList';
 export const pathList = [
     {
       path:'/',
-      component: DashboardComponent
+      component: DashboardComponent,
+      name: 'Dashboard'
     },
     {
       path:'/dashboard',
-      component: DashboardComponent
+      component: DashboardComponent,
+      name: 'Dashboard'
     },
     {
       path: '/dashboard/add-customer',
-      component: AddCustomerComponent
+      component: AddCustomerComponent,
+      name: 'Add Customer'
     },
     {
       path: '/dashboard/customer-list',
-      component: CustomerListComponent
+      component: CustomerListComponent,
+      name: 'Customer List'
     }
   ];  

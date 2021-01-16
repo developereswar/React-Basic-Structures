@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { Layout } from "../_layout/Layout";
 
+import { useHistory } from "react-router-dom";
+
 class DashboardComponent extends Component{
 
     constructor(props){
@@ -18,6 +20,12 @@ class DashboardComponent extends Component{
     }
     componentDidMount(){
       this.props.getCustomer();
+    }
+
+    viewPage = (e) => {
+        if(e){
+            this.props.history.push(e)
+        }
     }
 
     render(){
@@ -34,7 +42,7 @@ class DashboardComponent extends Component{
                 </Row>
             </section>
             <Row className="mt-3">
-                <div className="widget_board" name="" >
+                <div className="widget_board"  onClick={() => this.viewPage("/dashboard/add-customer")}>
                     <div className="widget_row">
                         <div className="img_block  bg_red">
                             <FontAwesomeIcon icon={faUserPlus} size="6x"/>
@@ -56,7 +64,7 @@ class DashboardComponent extends Component{
                     </div>
                 </div>
 
-                <div className="widget_board">
+                <div className="widget_board"   onClick={() =>this.viewPage("/dashboard/customer-list")}>
                     <div className="widget_row">
                         <div className="img_block bg_green">
                         <FontAwesomeIcon icon={faClipboard} size="6x"/>

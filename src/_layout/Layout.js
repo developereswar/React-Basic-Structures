@@ -6,7 +6,7 @@ import { Headers } from '../ui_modules/Header';
 import { SideBarComponent } from '../ui_modules/Sidebar';
 
 // path list
-import { pathList } from './Paths'
+import { pathList } from '../_global/Paths'
 
 export const Layout =  () => {
   return(
