@@ -21,8 +21,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { BreadcrumbModule } from "../ui_modules/Breadcrum";
 
 const AddCustomerComponent = (props) => {
+  const { allProducts } = props;
   const [selecedProdType, SetSelectedProdType] = useState([]);
-
 
 
   const [multipselectOptions, SetmultipselectOptions] = useState([])
@@ -44,9 +44,17 @@ const AddCustomerComponent = (props) => {
   useEffect(() => {
     // get All products
     props.getProduct();
-    console.log(props)
   }, [])
 
+  useEffect(()=>{
+    if(allProducts){ 
+      let arr =[];
+      allProducts.map(e => {
+       arr.push({label:e.productName, value: e.productName});
+   })
+   SetmultipselectOptions(arr)
+  }
+  }, [allProducts])
   return (
     <div className="content-wrapper">
       <section className="content-header">
@@ -97,7 +105,7 @@ const AddCustomerComponent = (props) => {
                   <b>{data.name}</b>
                 </Col>
                 <Col sm={4}>
-                  <Form.Control as="select" size="sm">
+                  <Form.Control as="Select Products" size="sm">
                     <option>Elizabeth</option>
                     <option>Elizabeth</option>
                     <option>Elizabeth</option>
@@ -130,7 +138,7 @@ const AddCustomerComponent = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    ...state.appReducer,
+    ...state,
   };
 };
 

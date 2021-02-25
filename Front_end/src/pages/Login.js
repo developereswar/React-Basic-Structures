@@ -161,7 +161,7 @@ class LoginComponent extends Component {
 const mapStateToProps = state => {
    console.log(state)
   return {
-    product: state.appReducer
+    product: state
   };
 };
 

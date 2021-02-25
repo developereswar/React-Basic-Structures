@@ -54,7 +54,7 @@ class DashboardComponent extends Component{
     constructor(props){
         super(props);
         this.state = {
-            customerList:[]
+            customerList:null
         }
     }
     componentDidMount(prevProps, prevState){
@@ -149,10 +149,8 @@ class DashboardComponent extends Component{
 }
 
 const mapStateToProps = state => {
-    console.log(state.appReducer.customerList)
-    return{
-    product: state.appReducer,
-    customerList:state.appReducer.customerList
+    return{ 
+    customerList:state.customerList
   };
 };
   
